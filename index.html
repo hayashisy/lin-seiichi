@@ -33,6 +33,42 @@
   }
   .lang-switch a:hover { color: #1a3a4a; border-color: #1a3a4a; }
 
+  /* Nav */
+  .top-nav {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+  }
+  .top-nav a {
+    color: #555;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .top-nav a:hover { color: #1a3a4a; background: rgba(26,58,74,0.06); }
+  .top-nav a.nav-cta {
+    background: #c0392b;
+    color: #fff;
+    font-weight: 600;
+    animation: pulse 2s infinite;
+  }
+  .top-nav a.nav-cta:hover { background: #a93226; }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+  }
+  @media (max-width: 600px) {
+    .top-nav { position: static; transform: none; justify-content: center; padding: 16px 0 0; }
+    .lang-switch { position: static; text-align: center; padding: 8px 0; }
+    .hero { padding-top: 40px; }
+  }
+
   /* Hero */
   .hero {
     padding: 100px 0 60px;
@@ -183,6 +219,12 @@
 <div class="lang-switch">
   <a href="/en/">English</a>
 </div>
+
+<nav class="top-nav">
+  <a href="#services">サービス</a>
+  <a href="/inspection/" class="nav-cta">🔍 画像検査装置</a>
+  <a href="#contact">お問合せ</a>
+</nav>
 
 <!-- Hero -->
 <header class="hero">
