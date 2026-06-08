@@ -34,19 +34,35 @@
   .lang-switch a:hover { color: #1a3a4a; border-color: #1a3a4a; }
 
   /* Nav */
-  .top-nav {
-    position: absolute;
-    top: 24px;
-    left: 50%;
-    transform: translateX(-50%);
+  .top-bar {
+    background: #fff;
+    border-bottom: 1px solid #e8e8e2;
+    padding: 0 24px;
     display: flex;
-    gap: 20px;
-    font-size: 14px;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .top-bar .brand {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a3a4a;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+  .top-nav {
+    display: flex;
+    gap: 12px;
+    font-size: 13px;
+    align-items: center;
   }
   .top-nav a {
     color: #555;
     text-decoration: none;
-    padding: 6px 14px;
+    padding: 6px 12px;
     border-radius: 4px;
     transition: all 0.2s;
     white-space: nowrap;
@@ -56,16 +72,19 @@
     background: #c0392b;
     color: #fff;
     font-weight: 600;
-    animation: pulse 2s infinite;
+    padding: 6px 16px;
   }
   .top-nav a.nav-cta:hover { background: #a93226; }
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.04); }
+  .top-nav a.lang-link {
+    color: #aaa;
+    font-size: 12px;
   }
   @media (max-width: 600px) {
-    .top-nav { position: static; transform: none; justify-content: center; padding: 16px 0 0; }
-    .lang-switch { position: static; text-align: center; padding: 8px 0; }
+    .top-bar { padding: 0 12px; height: 44px; }
+    .top-bar .brand { font-size: 13px; }
+    .top-nav { gap: 6px; font-size: 11px; }
+    .top-nav a { padding: 4px 8px; }
+    .top-nav a.nav-cta { padding: 4px 10px; }
     .hero { padding-top: 40px; }
   }
 
@@ -216,15 +235,16 @@
 </head>
 <body>
 
-<div class="lang-switch">
-  <a href="/en/">English</a>
-</div>
-
-<nav class="top-nav">
-  <a href="#services">サービス</a>
-  <a href="/inspection/" class="nav-cta">🔍 画像検査装置</a>
-  <a href="#contact">お問合せ</a>
-</nav>
+<!-- Top Bar -->
+<header class="top-bar">
+  <a href="/" class="brand">林 誠一</a>
+  <nav class="top-nav">
+    <a href="#services">サービス</a>
+    <a href="/inspection/" class="nav-cta">🔍 画像検査装置</a>
+    <a href="#contact">お問合せ</a>
+    <a href="/en/" class="lang-link">English</a>
+  </nav>
+</header>
 
 <!-- Hero -->
 <header class="hero">
@@ -252,7 +272,7 @@
       </div>
       <div class="about-item">
         <h3>🎓 学歴</h3>
-        <p>岐阜大学 大学院 修了<br>製造業専攻</p>
+        <p>岐阜大学 大学院 修了<br>応用情報学専攻</p>
       </div>
       <div class="about-item">
         <h3>📍 拠点</h3>
