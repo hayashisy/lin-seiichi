@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Optical Sorting Machine — automated visual inspection for bolts, nuts, terminals, and plastic parts. 1/3 to 1/5 the cost of Japanese equivalents. By Pinghu Guangxun.">
+<title>Optical Sorting Machine | Pinghu Guangxun Mechanical Equipment</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1a1a1a;
+    background: #fafaf8;
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+  }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  .nav-back {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    font-size: 13px;
+  }
+  .nav-back a {
+    color: #888;
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .nav-back a:hover { color: #1a3a4a; border-color: #1a3a4a; }
+
+  .lang-switch {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 13px;
+  }
+  .lang-switch a {
+    color: #888;
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .lang-switch a:hover { color: #1a3a4a; border-color: #1a3a4a; }
+
+  .hero {
+    padding: 100px 0 60px;
+    text-align: center;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 13px;
+    color: #fff;
+    background: #1a3a4a;
+    padding: 4px 16px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .hero .subtitle {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  .hero .price-highlight {
+    font-size: 20px;
+    color: #c0392b;
+    font-weight: 700;
+    margin-top: 20px;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: #1a3a4a;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 40px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 24px;
+  }
+  .hero-cta:hover { background: #0f2836; }
+
+  .hero-machine {
+    max-width: 500px;
+    width: 100%;
+    margin: 24px auto 0;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  }
+
+  section { padding: 80px 0; }
+  section.alt { background: #fff; }
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #1a3a4a;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  section h2 { font-size: 24px; font-weight: 700; margin-bottom: 32px; }
+  section h3 { font-size: 16px; margin: 24px 0 12px; color: #1a3a4a; }
+  section p { margin-bottom: 16px; color: #444; }
+
+  .divider { border: none; border-top: 1px solid #e0e0db; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  th, td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid #e8e8e2;
+  }
+  th { background: #f4f3f0; color: #1a3a4a; font-weight: 600; font-size: 13px; white-space: nowrap; }
+  td { color: #444; }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 32px 0;
+  }
+  @media (max-width: 600px) { .pricing-grid { grid-template-columns: 1fr; } }
+  .pricing-card {
+    background: #fff;
+    border: 1px solid #e0e0db;
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+  }
+  .pricing-card h3 { font-size: 15px; margin-bottom: 8px; }
+  .pricing-card .price { font-size: 22px; font-weight: 700; color: #1a3a4a; }
+  .pricing-card .price-range { font-size: 13px; color: #888; margin-bottom: 12px; }
+  .pricing-card ul { list-style: none; font-size: 13px; color: #666; text-align: left; }
+  .pricing-card ul li { padding: 4px 0; }
+  .pricing-card ul li::before { content: "✓ "; color: #1a3a4a; }
+
+  .flow-list { list-style: none; counter-reset: step; }
+  .flow-list li {
+    counter-increment: step;
+    padding: 16px 0;
+    border-bottom: 1px solid #e8e8e2;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 14px;
+  }
+  .flow-list li::before {
+    content: "0" counter(step);
+    background: #1a3a4a;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    min-width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .case-card {
+    border-left: 3px solid #1a3a4a;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    background: #f9f9f6;
+    border-radius: 0 6px 6px 0;
+  }
+  .case-card h3 { margin-top: 0; }
+
+  .cta {
+    text-align: center;
+    padding: 100px 0;
+    background: #1a3a4a;
+    color: #fff;
+  }
+  .cta h2 { color: #fff; font-size: 26px; margin-bottom: 16px; }
+  .cta p { color: rgba(255,255,255,0.75); font-size: 15px; margin-bottom: 32px; }
+  .cta-link {
+    display: inline-block;
+    background: #fff;
+    color: #1a3a4a;
+    text-decoration: none;
+    padding: 14px 40px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .cta-link:hover { opacity: 0.9; }
+
+  footer {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 12px;
+    color: #aaa;
+  }
+</style>
+</head>
+<body>
+
+<div class="nav-back">
+  <a href="/en/">← Back to Home</a>
+</div>
+
+<div class="lang-switch">
+  <a href="/inspection/">日本語</a>
+</div>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-tag">Optical Sorting Machine</div>
+    <h1>Visual Inspection Systems</h1>
+    <p class="subtitle">Automated dimensional, surface, and AI defect inspection<br>for bolts, nuts, terminals, and plastic parts.</p>
+    <p class="price-highlight">1/3 to 1/5 of Japanese market prices</p>
+    <p style="font-size:13px;color:#888;margin-top:12px;">Selected and delivered by a Gifu University graduate<br>specializing in image processing and machine vision.</p>
+    <img src="/inspection/machine.jpg" alt="Optical Sorting Machine — vibratory feeder, 6-camera inspection, 3-way sorting" class="hero-machine">
+    <a href="#contact" class="hero-cta">Request a Free Test Inspection</a>
+  </div>
+</header>
+
+<hr class="divider">
+
+<!-- Overview -->
+<section id="overview">
+  <div class="container">
+    <p class="section-label">Overview</p>
+    <h2>What We Inspect</h2>
+
+    <h3>Compatible Parts</h3>
+    <p>Bolts, nuts, screws, washers / terminals, contact pins / molded plastic parts (connectors, gears, caps) / O-rings, gaskets / Size range: φ2mm–φ40mm, length 3mm–120mm</p>
+
+    <h3>Inspection Capabilities</h3>
+    <table>
+      <tr><th>Category</th><th>Checks</th><th>Method</th></tr>
+      <tr><td>Dimensions</td><td>OD, ID, length, head diameter, head height, thread length, groove depth</td><td>2D Image Processing + 3D Laser (optional)</td></tr>
+      <tr><td>Surface Defects</td><td>Scratches, dents, burrs, chips, rust, discoloration, foreign matter</td><td>AI Deep Learning + Rule-based</td></tr>
+      <tr><td>Thread Inspection</td><td>Pitch, thread angle, incomplete threads</td><td>Image Processing</td></tr>
+      <tr><td>AI Options</td><td>Micro-crack detection, surface anomaly detection, mixed-material detection</td><td>CNN/Transformer-based</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Specs -->
+<section class="alt">
+  <div class="container">
+    <p class="section-label">Specifications</p>
+    <h2>Technical Specs</h2>
+    <table>
+      <tr><th>Parameter</th><th>Value</th></tr>
+      <tr><td>Throughput</td><td>300–1,200 parts/min (part-dependent)</td></tr>
+      <tr><td>Camera</td><td>5MP Global Shutter CMOS (industrial grade)</td></tr>
+      <tr><td>Lighting</td><td>LED ring + backlight + dome (switchable)</td></tr>
+      <tr><td>Algorithm</td><td>Rule-based + AI Deep Learning</td></tr>
+      <tr><td>Sorting</td><td>Air blow (3-way: OK / NG / Recheck)</td></tr>
+      <tr><td>Feeding</td><td>Parts feeder + glass turntable</td></tr>
+      <tr><td>UI Languages</td><td>Japanese / English / Chinese</td></tr>
+      <tr><td>Data Output</td><td>CSV logs, OK/NG statistics, trend graphs</td></tr>
+    </table>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Pricing -->
+<section id="pricing">
+  <div class="container">
+    <p class="section-label">Pricing</p>
+    <h2>Models &amp; Pricing</h2>
+    <p>All prices FOB Shanghai, in Chinese Yuan (CNY). Subject to exchange rate.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Entry</h3>
+        <div class="price">¥80K–150K CNY</div>
+        <div class="price-range">~$11K–21K USD</div>
+        <ul>
+          <li>Basic dimensional inspection</li>
+          <li>Single part type</li>
+          <li>1 × 2D camera</li>
+          <li>Lead time: 4–6 weeks</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <h3>Standard</h3>
+        <div class="price">¥150K–300K CNY</div>
+        <div class="price-range">~$21K–42K USD</div>
+        <ul>
+          <li>Dimension + surface inspection</li>
+          <li>Multi-part auto-switching</li>
+          <li>2 × 2D cameras</li>
+          <li>Lead time: 6–8 weeks</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <h3>AI-Powered</h3>
+        <div class="price">¥300K–500K CNY</div>
+        <div class="price-range">~$42K–70K USD</div>
+        <ul>
+          <li>Above + AI surface inspection</li>
+          <li>Deep learning classification</li>
+          <li>Auto defect categorization</li>
+          <li>Lead time: 8–10 weeks</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <h3>3D Hybrid</h3>
+        <div class="price">¥500K–800K CNY</div>
+        <div class="price-range">~$70K–112K USD</div>
+        <ul>
+          <li>Above + 3D laser measurement</li>
+          <li>Groove depth, coplanarity</li>
+          <li>Full 3D inspection</li>
+          <li>Lead time: 10–12 weeks</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:13px;color:#888;text-align:center;">
+      * Reference: equivalent Keyence systems typically range from ¥3M–30M JPY (~$20K–200K USD).
+    </p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Flow -->
+<section id="flow">
+  <div class="container">
+    <p class="section-label">Process</p>
+    <h2>How It Works</h2>
+    <ol class="flow-list">
+      <li><div><strong>Inquiry</strong><br><span style="color:#666;">Contact us via email. English, Japanese, or Chinese — all OK.</span></div></li>
+      <li><div><strong>Send Sample Parts</strong><br><span style="color:#666;">Ship 20–50 sample parts to Shanghai (freight collect accepted).</span></div></li>
+      <li><div><strong>Free Test + Report</strong><br><span style="color:#666;">Receive a detailed test report with inspection images within 1 week.</span></div></li>
+      <li><div><strong>Quotation</strong><br><span style="color:#666;">Formal quotation delivered within 3 business days after spec confirmation.</span></div></li>
+      <li><div><strong>Order → Manufacturing</strong><br><span style="color:#666;">4–12 weeks (model-dependent). Regular progress updates provided.</span></div></li>
+      <li><div><strong>Pre-Shipment Check (online available)</strong><br><span style="color:#666;">Witness inspection with your samples. Live video stream available.</span></div></li>
+      <li><div><strong>Delivery → Setup → Training</strong><br><span style="color:#666;">2-day on-site training included. Full English support available.</span></div></li>
+      <li><div><strong>After-Sales</strong><br><span style="color:#666;">Remote maintenance (TeamViewer) + annual on-site inspection visit.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Cases -->
+<section class="alt" id="cases">
+  <div class="container">
+    <p class="section-label">Case Studies</p>
+    <h2>Customer Success</h2>
+    <div class="case-card">
+      <h3>Case 1: Japanese Auto Parts Supplier (China Factory)</h3>
+      <p><strong>Parts:</strong> M6–M12 bolts, 15 varieties<br>
+      <strong>Challenge:</strong> Manual visual inspection of scratches/dents reaching its limit. Needed automation but Keyence was too expensive.<br>
+      <strong>Solution:</strong> AI-powered optical sorter + 5MP camera (¥180K CNY)<br>
+      <strong>Result:</strong> 400 parts/min, 99.2% defect detection rate. ROI in 8 months.</p>
+    </div>
+    <div class="case-card">
+      <h3>Case 2: Electronic Connector Manufacturer (China)</h3>
+      <p><strong>Parts:</strong> Contact pins φ0.8mm × 12mm<br>
+      <strong>Challenge:</strong> 100% inspection of micro-bending, plating defects, and foreign particles.<br>
+      <strong>Solution:</strong> High-magnification optical sorter + AI classification (¥250K CNY)<br>
+      <strong>Result:</strong> Replaced 3 human inspectors with 1 machine. 70% reduction in customer complaints.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="cta">
+  <div class="container">
+    <h2>Start with a Free Test Inspection</h2>
+    <p>Send us your parts and we'll deliver<br>a full inspection report within one week.</p>
+    <a href="mailto:phguangxun@163.com" class="cta-link">Email Us</a>
+    <p style="margin-top:24px;font-size:13px;color:rgba(255,255,255,0.5);">
+      📧 phguangxun@163.com<br>
+      🏭 Jiaxing, Zhejiang, China<br>
+      👤 Contact: Seiichi Hayashi | English / Japanese / Chinese
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Pinghu Guangxun Mechanical Equipment Co., Ltd.</p>
+    <p style="margin-top:8px;"><a href="/en/" style="color:#aaa;">Back to Home</a> · <a href="/inspection/" style="color:#aaa;">日本語</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
